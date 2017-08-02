@@ -34,7 +34,7 @@ function getPostsByCategory($category_name, $posts) {
 	$name = null;
 	$result = [];
 	foreach ($posts as $post) {
-		if (array_key_exists('category', $post) && $post['category'] == $category_name) {
+		if (array_key_exists('category', $post) && strtolower($post['category']) == $category_name) {
 			$result[] = $post;
 		}
 	}
