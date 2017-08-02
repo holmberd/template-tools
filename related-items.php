@@ -11,9 +11,8 @@ function getPageIdsByTemplate($template_name) {
 	return get_posts($args);
 }
 
-
-function getAllPosts() {
-	$ids = getPageIdsByTemplate('responsive-minimal.php');
+function getAllPostsByTemplate($template_name) {
+	$ids = getPageIdsByTemplate($template_name);
 	$posts = [];
 	$post = [];
 	$icon_array = null;
@@ -29,6 +28,17 @@ function getAllPosts() {
 		$posts[] = $post;
 	}
 	return $posts;
+}
+
+function getPostsByCategory($category_name, $posts) {
+	$name = null;
+	$result = [];
+	foreach ($posts as $post) {
+		if ($post['category'] == $category_name) {
+			$result[] = $post;
+		}
+	}
+	return $result;
 }
 
 ?>
