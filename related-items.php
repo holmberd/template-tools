@@ -33,6 +33,9 @@ function getAllPostsByTemplate($template_name) {
 function getPostsByCategory($category_name, $posts) {
 	$name = null;
 	$result = [];
+	$category_name = strtolower($category_name);
+	$category_name = str_replace(" / ", " ", $category_name);
+	$category_name = str_replace(" ", "-", $category_name);
 	foreach ($posts as $post) {
 		if (array_key_exists('category', $post) && strtolower($post['category']) == $category_name) {
 			$result[] = $post;
