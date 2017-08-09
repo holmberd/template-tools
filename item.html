@@ -1,0 +1,64 @@
+<!doctype html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class='content'>
+      <div style='padding-top:5rem;'>
+        <div class='row'>
+          <div class='large-10 large-offset-1 columns'>
+            <h1 class='center'><?php echo get_post_field('post_title'); ?></h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="item-container">
+        <div class="row" id='item-row'>
+          <div class="large-12 columns">
+            <?php
+              $posts = getAllPostsByTemplate('responsive-minimal.php');
+              $category_name = get_post_field('post_title');
+              $related_posts = getPostsByCategory($category_name, $posts);
+              $icon = null;
+              $title = null;
+              $sub_title = null;
+              $url = null;
+              foreach($related_posts as $post) {
+                $icon = $post['icon'];
+                $title = $post['title'];
+                $rating = $post['rating'];
+                $sub_title = $post['sub_title'];
+                $url = $post['url'];
+                // Product item html template
+                echo "<div class='item'>";
+                  echo "<div class='item-icon-container'>";
+                  echo "<a href='$url'><img class='item-icon' src='$icon'></a>";
+                  echo "</div>";
+                echo "<div class='item-floating-text'>";
+                echo "<div class='item-title-container'>";
+                echo "<div class='item-title'>";
+                echo "<h4><a href='$url'>$title</a></h4>";
+                echo "</div>";
+                echo "<div class='item-rating'>";
+                echo $rating;
+                    echo "</div>";
+                    echo "</div>";
+                echo "<div class='item-desc'>";
+                echo $sub_title;
+                          echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                // end template
+              }
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer id="footer" class="large-12 columns">
+		  <div class="row"></div>
+	  </footer>
+    
+  </body>
+</html>
