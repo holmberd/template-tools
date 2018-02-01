@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Generates App JSON-Schema
  * @param string $name
@@ -46,3 +47,29 @@ function buildAppSchema($name, $image, $category, $version, $description, $autho
 }
 
 ?>
+
+/** Categories 
+MultimediaApplication
+EntertainmentApplication
+BusinessApplication
+GameApplication
+DeveloperApplication
+DriverApplication
+EducationalApplication
+HealthApplication
+TravelApplication
+FinanceApplication
+SecurityApplication
+BrowserApplication
+CommunicationApplication
+DesktopEnhancementApplication
+DesignApplication
+HomeApplication
+SocialNetworkingApplication
+UtilitiesApplication
+ReferenceApplication
+SportsApplication
+ShoppingApplication
+MedicalApplication
+OtherApplication
+*/
