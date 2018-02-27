@@ -6,14 +6,17 @@
  * @param string $category
  * @param string $version
  * @param string $image
+ * @param string $thumbnail_url
  * @param string $description
+ * @param string $keywords
+ * @param string $date_published - e.g. 2018-02-21
  * @param string $author_name
  * @param string $author_url
  * @param string|int $rating_value
  * @param string|int $rating_count
  * @return JSON
  */
-function buildAppSchema($name, $image, $category, $version, $description, $author_name, $author_url, $rating_value='4', $rating_count=false) {
+function buildAppSchema($name, $image, $thumbnail_url, $category, $version, $description, $keywords, $date_published, $author_name, $author_url, $rating_value='4', $rating_count=false) {
     $rating_value = strval($rating_value);
     $rating_count = strval($rating_count) ?: strval(rand(10,11966));
     $array = array(
@@ -22,9 +25,12 @@ function buildAppSchema($name, $image, $category, $version, $description, $autho
         'operatingSystem' => 'Windows, Windows 7, Windows 10, OSX',
         "name" => $name,
         "image" => $image,
+	"thumbnailUrl" => $thumbnail_url,
         "softwareVersion" => $version,
         "applicationCategory" => $category,
         "description" => $description,
+	"keywords" => $keywords,
+	"datePublished" => $date_published,
         "aggregateRating" => array(
             "@type" => "AggregateRating",
 			"worstRating" => '0',
